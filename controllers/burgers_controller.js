@@ -15,13 +15,15 @@ router.get('/burgers', function(req, res){
 });
 
 router.post('/burgers/insertOne', function (req, res) {
+  console.log(req.body.burgerName);
 	burger.insertOne([req.body.burgerName], function () {
 		res.redirect('/burgers');
 	});
 });
 
 router.put('/burgers/updateOne/:burgerName', function (req, res) {
-	burger.updateOne([req.body.burgerName], function () {
+  console.log(req.params.burgerName);
+  burger.updateOne(req.params.burgerName, function () {
 		res.redirect('/burgers');
 	});
 });

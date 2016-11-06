@@ -13,6 +13,7 @@ var burger={
   },
   updateOne: function(burgerName, cb){
     orm.updateOne('burgers', burgerName, function(res){
+      console.log('updateOne on burger.js', burgerName);
       cb(res);
     });
   }
